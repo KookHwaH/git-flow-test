@@ -17,7 +17,8 @@ develop			$ git pull		// origin/develop 과 동기화
 
 support/version	$ git log develop	// 테스트 할 브랜치 커밋 복사하기
 				$ git merge < commit hash >		// 테스트할 커밋 병합 후 테스트
-				$ git push origin support/version	// remote 에 support 브랜치 푸쉬
+				$ git push origin support/version	// 테스트 통과시 remote 에 support 브랜치 푸쉬
+				// 이후 기능단위로 releases/<version> 에 머지 리퀘스트
 
 ## 사용자 테스트
 (git flow init 시 next release branch 명을 develop 대신 release, prefix 중 release/ 를 releases/  로 명명)
@@ -25,4 +26,5 @@ master			$ git pull
 				$ git pull origin support/<version>
 				$ git switch release
 
-				$ git flow release start < version >	// develop 을 테스트할 
+				$ git flow release start < version >	// support 를 테스트할 버전
+releases/version	$ git merge 
