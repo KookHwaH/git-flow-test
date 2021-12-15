@@ -11,14 +11,14 @@ develop			$ git pull		// origin/develop 과 동기화
 				$ git push		// origin/develop 에 push
 
 				$ git branch -r		// remote 에 support 브랜치 있는지 확인
-				-	$ git pull origin 	// origin 에 있는 support branch pull
+				-	$ git switch -c test/<version> 	// origin 에 있는 support branch pull
 					or
-				-	$ git flow support start -F < version > master		// remote에 support 브랜치 없다면, master 베이스로 test용 support 브랜치 생성 후 이동
+				-	$ git master		
+				-	$ git checkout -b test/<version>	// remote에 support 브랜치 없다면, master 베이스로 test용 support 브랜치 생성 후 이동
 
-support/version	$ git log develop	// 테스트 할 브랜치 커밋 복사하기
+test/version	$ git log develop	// 테스트 할 브랜치 커밋 복사하기
 				$ git merge < commit hash >		// 테스트할 커밋 병합 후 테스트
-				$ git push origin support/version	// 테스트 통과시 remote 에 support 브랜치 푸쉬
-				// 이후 기능단위로 releases/<version> 에 머지 리퀘스트
+				$ git push origin test/<version>	// 테스트 통과시 remote 에 test 브랜치 푸쉬
 
 ## 사용자 테스트
 (git flow init 시 next release branch 명을 develop 대신 release, prefix 중 release/ 를 releases/  로 명명)
