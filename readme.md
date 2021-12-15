@@ -6,7 +6,7 @@ master			$ git pull
 				$ git switch develop
 develop 		$ git flow feature start < branch name > // branch name 브랜치로 자동 이동
 feature/name	$ git commit	// 개발 작업 후 커밋
-				$ git flow feature finish simulation	// feature/name 브랜치 develop 브랜치로 병합 -> feature/name 브랜치 삭제 -> develop 브랜치 이동
+				$ git flow feature finish < branch name >	// feature/name 브랜치 develop 브랜치로 병합 -> feature/name 브랜치 삭제 -> develop 브랜치 이동
 develop			$ git pull		// origin/develop 과 동기화
 				$ git push		// origin/develop 에 push
 
@@ -23,6 +23,9 @@ support/version	$ git log develop	// 테스트 할 브랜치 커밋 복사하기
 ## 사용자 테스트
 (git flow init 시 next release branch 명을 develop 대신 release, prefix 중 release/ 를 releases/  로 명명)
 master			$ git pull
+				$ git switch release
+release			$ git merge master	// master 와 동기화
+
 				$ git switch -c origin/support/<version>
 				$ git pull origin support/<version>
 				$ git flow release start <version>
