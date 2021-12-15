@@ -25,7 +25,7 @@ test/version	$ git log develop	// 테스트 할 브랜치 커밋 복사하기
 master			$ git pull
 				$ git switch release
 release			$ git merge master	// master 와 동기화
-				$ git branch -r		// 테스트 브랜치 확인
+
 				$ git switch -c origin/support/<version>
 				$ git pull origin support/<version>
 				$ git flow release start <version>
