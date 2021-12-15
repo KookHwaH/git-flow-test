@@ -23,8 +23,11 @@ support/version	$ git log develop	// 테스트 할 브랜치 커밋 복사하기
 ## 사용자 테스트
 (git flow init 시 next release branch 명을 develop 대신 release, prefix 중 release/ 를 releases/  로 명명)
 master			$ git pull
+				$ git switch -c origin/support/<version>
 				$ git pull origin support/<version>
-				$ git switch release
-
-				$ git flow release start < version >	// support 를 테스트할 버전
-releases/version	$ git merge 
+				$ git flow release start <version>
+releases/version	$ git log support/<version>	// release 할 기능에 대한 커밋 확인
+					$ git merge < commit hash >
+					$ git flow release finish <version> // editor 에서 master 태그 작성
+					$ git push origin release
+gitlab		merge request release -> master
